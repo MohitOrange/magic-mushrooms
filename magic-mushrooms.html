@@ -39,7 +39,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 0;transition:.4
 nav.scrolled{background:rgba(251,246,234,.92);backdrop-filter:blur(14px);box-shadow:0 4px 30px rgba(0,0,0,.08);padding:10px 0}
 nav .wrap{display:flex;align-items:center;justify-content:space-between}
 .logo{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-weight:800;font-size:1.35rem;color:#fff;line-height:1}
-.logo small{display:block;font-family:'Poppins';font-weight:500;font-size:.62rem;letter-spacing:2px;color:var(--lime)}
+.logo small{display:block;margin-top:4px;font-family:'Poppins';font-weight:500;font-size:.62rem;letter-spacing:2px;color:var(--lime)}
 nav.scrolled .logo{color:var(--forest)}
 nav.scrolled .logo small{color:var(--earth)}
 .links{display:flex;gap:28px;align-items:center}
@@ -56,26 +56,26 @@ nav.scrolled .lang button{color:var(--forest)}
 nav.scrolled .burger{color:var(--forest)}
 
 /* HERO */
-.hero{min-height:100vh;background:radial-gradient(ellipse at 70% 40%,#2c7a43 0%,var(--forest) 55%,#0a2414 100%);color:#fff;display:flex;align-items:center;overflow:hidden;padding:130px 0 80px}
+.hero{position:relative;min-height:auto;background:radial-gradient(ellipse at 70% 40%,#2c7a43 0%,var(--forest) 55%,#0a2414 100%);color:#fff;display:flex;align-items:center;overflow:hidden;padding:110px 0 90px}
 .hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M40 10c8 10 8 20 0 30-8-10-8-20 0-30z' fill='%23ffffff' opacity='.035'/%3E%3C/svg%3E")}
 .spore{position:absolute;border-radius:50%;background:var(--lime);opacity:.5;filter:blur(1px);animation:float linear infinite}
 @keyframes float{from{transform:translateY(110vh)}to{transform:translateY(-10vh)}}
-.hero-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center;position:relative;z-index:2}
-.hero .script{font-size:2rem;color:var(--lime)}
-.hero h1{font-size:clamp(2.6rem,6vw,5rem);margin:10px 0 20px}
+.hero-grid{display:grid;z-index:2;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center;position:relative;z-index:2}
+.hero .script{font-size:1.6rem;color:var(--lime)}
+.hero h1{font-size:clamp(2rem,3.8vw,3.3rem);margin:6px 0 16px;max-width:600px;letter-spacing:-.5px}
 .hero h1 span{color:var(--lime);font-style:italic}
-.hero p.lead{font-size:1.1rem;opacity:.88;max-width:520px;margin-bottom:34px}
+.hero p.lead{font-size:1.02rem;opacity:.88;max-width:500px;margin-bottom:28px}
 .hero-btns{display:flex;gap:16px;flex-wrap:wrap}
-.hero-stats{display:flex;gap:36px;margin-top:50px;flex-wrap:wrap}
-.hero-stats b{font-family:'Fraunces';font-size:2.2rem;color:var(--lime);display:block;line-height:1}
+.hero-stats{display:flex;gap:36px;margin-top:36px;padding-top:24px;border-top:1px solid rgba(255,255,255,.15);flex-wrap:wrap}
+.hero-stats b{font-family:'Fraunces';font-size:1.9rem;color:var(--lime);display:block;line-height:1}
 .hero-stats span{font-size:.85rem;opacity:.8}
 .hero-art{position:relative;display:flex;justify-content:center}
 .hero-art .halo{position:absolute;width:85%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(182,224,90,.35),transparent 70%);animation:pulse 5s ease-in-out infinite}
 @keyframes pulse{50%{transform:scale(1.1)}}
-.hero-art svg{width:100%;max-width:470px;position:relative;filter:drop-shadow(0 30px 40px rgba(0,0,0,.4));animation:bob 6s ease-in-out infinite}
+.hero-art svg{width:100%;max-width:380px;position:relative;filter:drop-shadow(0 30px 40px rgba(0,0,0,.4));animation:bob 6s ease-in-out infinite}
 @keyframes bob{50%{transform:translateY(-18px) rotate(-2deg)}}
 .badge-float{position:absolute;background:#fff;color:var(--forest);padding:12px 18px;border-radius:16px;box-shadow:var(--shadow);font-weight:600;font-size:.88rem;display:flex;gap:8px;align-items:center;animation:bob 5s ease-in-out infinite}
-.wave{position:absolute;bottom:-1px;left:0;width:100%}
+.wave{position:absolute;bottom:-1px;left:0;width:100%;height:50px;z-index:1}
 
 /* MARQUEE */
 .marquee{background:var(--earth);color:#fff;padding:18px 0;overflow:hidden;white-space:nowrap}
@@ -215,6 +215,7 @@ footer small{display:block;margin-top:20px;font-size:.8rem;opacity:.6}
   .badge-float{display:none}
 }
 @media(max-width:520px){.why-grid,.steps,.f2,.checks{grid-template-columns:1fr}.hero-stats{gap:22px}}
+#spores{position:absolute;inset:0;overflow:hidden;pointer-events:none}
 </style>
 </head>
 <body>
@@ -261,7 +262,7 @@ footer small{display:block;margin-top:20px;font-size:.8rem;opacity:.6}
  <div class="wrap hero-grid">
   <div>
    <div class="script" data-en="Nature's goodness in every box" data-ta="ஒவ்வொரு பெட்டியிலும் இயற்கையின் நன்மை">Nature's goodness in every box</div>
-   <h1 data-en="Farm-Fresh <span>Mushrooms</span>, Grown with Love in Dindigul" data-ta="திண்டுக்கல்லில் அன்புடன் வளர்க்கப்பட்ட <span>பண்ணை புதிய காளான்கள்</span>">Farm-Fresh <span>Mushrooms</span>, Grown with Love in Dindigul</h1>
+   <h1 data-en="Farm-Fresh <span>Mushrooms</span><br>from Dindigul" data-ta="திண்டுக்கல் <span>பண்ணை காளான்கள்</span>">Farm-Fresh <span>Mushrooms</span><br>from Dindigul</h1>
    <p class="lead" data-en="Premium Oyster & Milky mushrooms — 100% natural, hygienically grown, harvested every morning and delivered fresh to your kitchen." data-ta="பிரீமியம் சிப்பி & பால் காளான்கள் — 100% இயற்கை, சுகாதாரமாக வளர்க்கப்பட்டு, ஒவ்வொரு காலையும் அறுவடை செய்து உங்கள் சமையலறைக்கு புதிதாக வழங்கப்படுகிறது.">Premium Oyster & Milky mushrooms — 100% natural, hygienically grown, harvested every morning and delivered fresh to your kitchen.</p>
    <div class="hero-btns">
     <a href="#order" class="btn btn-wa">🛒 <span data-en="Order Now" data-ta="இப்போது ஆர்டர்">Order Now</span></a>
